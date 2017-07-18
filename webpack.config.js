@@ -19,8 +19,10 @@ module.exports = {
     },
     module: {
         loaders: [
+            { test: /\.json$/, loader: "json-loader"},
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ }
+            { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+            { test: /\.css$/, loaders: ['style-loader',{ loader: 'css-loader',options: { importLoaders: 1} },'postcss-loader']},
         ]
     },
     plugins: [HtmlWebpackPluginConfig]
